@@ -1,0 +1,41 @@
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.game-card {
+    background: #1e293b;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+    color: white;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.price {
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input {
+    border-radius: 8px !important;
+}
+
+button {
+    font-weight: bold;
+}
