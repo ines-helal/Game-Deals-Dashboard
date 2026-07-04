@@ -2,6 +2,12 @@
 
 A simple Flask web app that fetches live game deals from the [CheapShark API](https://www.cheapshark.com/api) and lets users search and filter them by title and price range.
 
+## Live Demo
+
+https://game-deals-dashboard.onrender.com
+
+> Note: hosted on Render's free tier, so the app may take up to ~50 seconds to wake up if it's been inactive.
+
 ## Features
 
 - Fetches real-time deals from CheapShark
@@ -14,10 +20,15 @@ A simple Flask web app that fetches live game deals from the [CheapShark API](ht
 - Python 3.7+
 - Flask
 - Requests
+- Gunicorn (for production deployment)
 
 ## Installation
 
-1. Clone or download this repository.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/ines-helal/Game-Deals-Dashboard.git
+   cd Game-Deals-Dashboard
+   ```
 2. (Optional but recommended) create a virtual environment:
    ```bash
    python -m venv venv
@@ -25,12 +36,12 @@ A simple Flask web app that fetches live game deals from the [CheapShark API](ht
    ```
 3. Install dependencies:
    ```bash
-   pip install flask requests
+   pip install -r requirements.txt
    ```
 
 ## Usage
 
-1. Run the app:
+1. Run the app locally:
    ```bash
    python app.py
    ```
@@ -47,9 +58,11 @@ A simple Flask web app that fetches live game deals from the [CheapShark API](ht
 
 ```
 .
-├── app.py              # Main Flask application
+├── app.py                # Main Flask application
+├── requirements.txt      # Python dependencies
 ├── templates/
-│   └── index.html      # Template rendering the games list
+│   └── index.html        # Template rendering the games list
+├── static/                # CSS/JS/images used by the templates
 └── README.md
 ```
 
@@ -58,6 +71,15 @@ A simple Flask web app that fetches live game deals from the [CheapShark API](ht
 - The `/` route accepts optional query parameters: `search`, `min_price`, and `max_price`.
 - It calls the CheapShark `/deals` endpoint to get the current list of deals.
 - Results are filtered in Python based on the provided query parameters before being passed to the template.
+
+## Deployment
+
+This app is deployed on [Render](https://render.com) as a Web Service, using:
+
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `gunicorn app:app`
+
+Any push to the `main` branch on GitHub automatically triggers a new deployment.
 
 ## Possible Improvements
 
